@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sora:wght@400;600;700;800&display=swap');
+
+:root {
+  --black: #0A0A0A; --lime: #C8F500; --cream: #F4F1E8; --white: #FFFFFF; --olive: #7A9000;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background:#808080; }
+
+/* El marco es el lienzo exacto que se exporta */
+#frame {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Sora', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--white);
+}
+#frame.square { width:1080px; height:1080px; }
+#frame.story  { width:1080px; height:1920px; }
+
+/* Fondos */
+.bg-black { background: var(--black); color: var(--white); }
+.bg-cream { background: var(--cream); color: var(--black); }
+.bg-lime  { background: var(--lime);  color: var(--black); }
+
+/* Tipografia */
+.display { font-family:'Archivo Black', sans-serif; line-height:0.92; letter-spacing:-0.01em; text-transform:uppercase; }
+.eyebrow { font-family:'Sora', sans-serif; font-weight:800; letter-spacing:0.22em; text-transform:uppercase; }
+.body    { font-family:'Sora', sans-serif; font-weight:600; line-height:1.35; }
+.lime    { color: var(--lime); }
+.olive   { color: var(--olive); }
+.k-black { color: var(--black); }
+.k-white { color: var(--white); }
+
+/* Logo esquina superior izquierda */
+.logo { position:absolute; top:64px; left:64px; z-index:5; }
+.logo img { display:block; height:62px; width:auto; }
+.story .logo { top:80px; left:72px; }
+.story .logo img { height:78px; }
+
+/* Marca de agua: la M de fondo */
+.wm { position:absolute; z-index:0; pointer-events:none; }
+.wm img { display:block; }
+
+/* Capas sobre foto */
+.photo-bg { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; }
+.overlay { position:absolute; inset:0; z-index:1; }
+.shade { background:linear-gradient(180deg, rgba(10,10,10,.15) 0%, rgba(10,10,10,.30) 45%, rgba(10,10,10,.92) 100%); }
+.shade-full { background:rgba(10,10,10,.46); }
+
+.layer { position:absolute; z-index:2; }
+
+/* Barra de acento */
+.bar { background: var(--lime); }
+
+/* Boton */
+.btn { display:inline-block; background:var(--lime); color:var(--black);
+  font-family:'Archivo Black',sans-serif; text-transform:uppercase;
+  padding:26px 44px; font-size:36px; letter-spacing:0.01em; border-radius:4px; }
+</style>
+</head><body>
+<div id="frame" class="square bg-cream">
+  <div class="wm" style="bottom:-160px;right:-130px;opacity:0.05;"><img src="file:///Users/julianaordonezcarvajal/Downloads/magno-catalogo-web%20%281%29/ig/brand/mark-dark.png" style="width:1020px"></div>
+  <div class="logo"><img src="file:///Users/julianaordonezcarvajal/Downloads/magno-catalogo-web%20%281%29/ig/brand/logo-dark.png"></div>
+  
+<div class="layer eyebrow olive" style="left:64px; top:172px; font-size:26px">QUÉ HICIMOS</div>
+<div class="layer display" style="left:60px; top:240px; width:960px; font-size:96px; color:var(--black)">
+  BRANDING<br>VEHICULAR</div>
+<div class="layer" style="left:64px; top:520px; width:900px">
+  <div style="display:flex; align-items:center; gap:26px; margin-bottom:34px">
+    <span style="width:22px; height:22px; background:var(--olive); display:block; flex:0 0 auto"></span>
+    <span class="body" style="font-size:40px; font-weight:700; color:var(--black)">Diseño del wrap a la medida</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:26px; margin-bottom:34px">
+    <span style="width:22px; height:22px; background:var(--olive); display:block; flex:0 0 auto"></span>
+    <span class="body" style="font-size:40px; font-weight:700; color:var(--black)">Impresión en vinilo de alta duración</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:26px; margin-bottom:34px">
+    <span style="width:22px; height:22px; background:var(--olive); display:block; flex:0 0 auto"></span>
+    <span class="body" style="font-size:40px; font-weight:700; color:var(--black)">Instalación profesional full-wrap</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:26px; margin-bottom:34px">
+    <span style="width:22px; height:22px; background:var(--olive); display:block; flex:0 0 auto"></span>
+    <span class="body" style="font-size:40px; font-weight:700; color:var(--black)">Cobertura en Medellín y Barranquilla</span>
+  </div></div>
+<div class="layer bar" style="left:0; bottom:0; width:1080px; height:18px"></div>
+
+</div>
+</body></html>
