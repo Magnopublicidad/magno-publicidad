@@ -358,7 +358,7 @@ footer{padding:70px 6vw 40px;border-top:1px solid rgba(255,255,255,.08)}
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
   transition:opacity .6s ease,visibility .6s;
 }
-.loader.hide{opacity:0;visibility:hidden}
+.loader.hide{opacity:0;visibility:hidden;pointer-events:none}
 .loader-logo{
   font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);letter-spacing:-2px;color:var(--white);
   opacity:0;transform:translateY(16px);animation:fadeUp .7s .1s forwards;
@@ -1087,7 +1087,15 @@ document.addEventListener('keydown',e=>{
 });
 
 // ---------- Loader de entrada ----------
-addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hide'),700);});
+function hideLoader(){
+  const l=document.getElementById('loader');
+  if(!l||l.dataset.done)return;
+  l.dataset.done='1';
+  l.classList.add('hide');
+  setTimeout(()=>{l.style.display='none';},700); // lo saca por completo: nunca bloquea toques
+}
+addEventListener('load',()=>setTimeout(hideLoader,700));
+setTimeout(hideLoader,3000); // respaldo por si 'load' tarda (móvil con conexión lenta)
 
 // ---------- Cursor personalizado ----------
 (function(){
