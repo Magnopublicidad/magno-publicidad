@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGNO Publicidad · Catálogo de servicios</title>
+
+<!-- SEO -->
+<meta name="description" content="MAGNO Publicidad: agencia creativa de impresión, branding y señalización. Gran formato, avisos, stands, branding vehicular, personalización de marca y soluciones digitales.">
+<meta name="keywords" content="publicidad, impresión gran formato, branding, avisos, señalización, stands, vinilos, pendones, MAGNO">
+<meta name="theme-color" content="#C8F500">
+
+<!-- Open Graph (Facebook / WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MAGNO Publicidad · Branding e impresión que hace tu marca VIVA">
+<meta property="og:description" content="Branding, impresión e ideas frescas. Ocho líneas de servicio para llevar tu marca del archivo a la calle.">
+<!-- 👉 Cambia esta URL por la ruta completa de tu logo cuando subas la web (ej: https://tudominio.com/img/magno-logo.jpg) -->
+<meta property="og:image" content="img/magno-logo.jpg">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MAGNO Publicidad · Catálogo">
+<meta name="twitter:description" content="Branding, impresión e ideas frescas que hacen que tu marca se sienta VIVA.">
+<meta name="twitter:image" content="img/magno-logo.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23000000'/><text x='46' y='70' font-family='Arial Black, Arial, sans-serif' font-size='62' font-weight='900' text-anchor='middle' fill='%23ffffff'>M</text><circle cx='82' cy='66' r='9' fill='%23C8F500'/></svg>">
+<link rel="apple-touch-icon" href="img/magno-logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#C8F500;
+  --lime-deep:#a8cf00;
+  --ink:#000000;
+  --ink-soft:#141414;
+  --cream:#f4f3ec;
+  --gray:#9a9a93;
+  --white:#ffffff;
+  --display:'Archivo Black',sans-serif;
+  --body:'Sora',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--ink);
+  color:var(--white);
+  overflow-x:hidden;
+}
+::selection{background:var(--lime);color:var(--ink)}
+
+/* ---------- Fondo animado tipo topografía ---------- */
+.bg-topo{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(200,245,0,.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(200,245,0,.06), transparent 60%),
+    var(--ink);
+}
+.bg-lines{
+  position:fixed;inset:0;z-index:-1;opacity:.35;
+  background-image:repeating-radial-gradient(circle at 15% 50%, transparent 0 38px, rgba(200,245,0,.07) 39px 40px);
+  animation:drift 30s linear infinite;
+}
+@keyframes drift{0%{background-position:0 0}100%{background-position:80px 40px}}
+
+/* ---------- Navbar ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 6vw;
+  background:rgba(10,10,10,.6);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:.3s;
+}
+nav.scrolled{padding:12px 6vw;background:rgba(10,10,10,.92)}
+.logo{font-family:var(--display);font-size:1.5rem;letter-spacing:-1px}
+.logo b{color:var(--white)} .logo .dot{color:var(--lime)}
+.navlinks{display:flex;gap:28px}
+.navlinks a{color:var(--gray);text-decoration:none;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;transition:.2s}
+.navlinks a:hover{color:var(--lime)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--white)}
+@media(max-width:860px){
+  .navlinks{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;align-items:center;gap:32px;transform:translateX(100%);transition:.4s}
+  .navlinks.open{transform:translateX(0)}
+  .navlinks a{font-size:1.3rem}
+  .burger{display:flex;z-index:101}
+}
+
+/* ---------- Hero ---------- */
+header{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:0 6vw;position:relative;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;width:fit-content;
+  background:var(--lime);color:var(--ink);
+  padding:8px 18px;border-radius:40px;font-weight:700;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:28px;
+  opacity:0;animation:fadeUp .8s .2s forwards;
+}
+.hero-tag .pulse{width:8px;height:8px;background:var(--ink);border-radius:50%;animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+.hero-logo{
+  width:min(560px,80vw);height:auto;display:block;
+  margin-left:-1vw;
+  opacity:0;transform:scale(.94);
+  animation:logoIn 1s .35s cubic-bezier(.16,1,.3,1) forwards;
+  /* Desvanece los bordes del cuadro para fundirlo con el fondo */
+  -webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 50%, #000 50%, transparent 80%);
+          mask-image:radial-gradient(ellipse 70% 80% at 50% 50%, #000 50%, transparent 80%);
+}
+@keyframes logoIn{to{opacity:1;transform:scale(1)}}
+h1.hero{
+  font-family:var(--display);
+  font-size:clamp(3rem,11vw,9rem);line-height:.9;letter-spacing:-2px;
+}
+h1.hero .line{display:block;overflow:hidden}
+h1.hero .line span{display:block;opacity:0;transform:translateY(110%);animation:reveal .9s cubic-bezier(.16,1,.3,1) forwards}
+h1.hero .line:nth-child(1) span{animation-delay:.3s}
+h1.hero .line:nth-child(2) span{animation-delay:.45s;color:var(--lime)}
+@keyframes reveal{to{opacity:1;transform:translateY(0)}}
+.hero-sub{
+  max-width:560px;margin-top:32px;color:var(--gray);font-size:1.1rem;line-height:1.7;
+  opacity:0;animation:fadeUp .8s .8s forwards;
+}
+.hero-cta{
+  display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .8s 1s forwards;
+}
+.btn{
+  padding:16px 34px;border-radius:50px;font-weight:700;font-size:.9rem;
+  text-decoration:none;text-transform:uppercase;letter-spacing:1px;
+  display:inline-flex;align-items:center;gap:10px;transition:.3s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--lime);color:var(--ink)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(200,245,0,.35)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.scroll-hint{position:absolute;bottom:30px;left:6vw;color:var(--gray);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:0;animation:fadeUp .8s 1.3s forwards}
+.scroll-hint::after{content:"↓";display:block;margin-top:8px;font-size:1.4rem;animation:bob 1.6s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ---------- Stats ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  padding:60px 6vw;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);
+}
+.stat h3{font-family:var(--display);font-size:clamp(2rem,5vw,3.4rem);color:var(--lime)}
+.stat p{color:var(--gray);font-size:.85rem;text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.stat .ph{font-size:.7rem;color:#5a5a55;display:block;margin-top:4px;font-style:italic}
+@media(max-width:760px){.stats{grid-template-columns:1fr!important;gap:36px}}
+
+/* ---------- Section heads ---------- */
+.section{padding:110px 6vw}
+.eyebrow{color:var(--lime);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:.78rem;margin-bottom:14px}
+.section h2{font-family:var(--display);font-size:clamp(2.2rem,6vw,4.5rem);line-height:.95;letter-spacing:-1px;margin-bottom:18px}
+.section .intro{max-width:600px;color:var(--gray);line-height:1.7;font-size:1.05rem}
+
+/* ---------- Services grid (catálogo) ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;margin-top:60px}
+.card{
+  background:var(--ink-soft);border:1px solid rgba(255,255,255,.07);
+  border-radius:24px;overflow:hidden;position:relative;
+  transition:.45s cubic-bezier(.16,1,.3,1);
+}
+.card.dark{background:var(--ink-soft)}
+.card.light{background:var(--cream);color:var(--ink)}
+.card:hover{transform:translateY(-10px);border-color:var(--lime);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.card-media{
+  height:250px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#1d1d1d,#2a2a2a);
+  display:flex;align-items:center;justify-content:center;
+}
+.card.light .card-media{background:linear-gradient(135deg,#dedacb,#e9e6da)}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:.7s ease;display:block}
+.card:hover .card-media img{transform:scale(1.12)}
+/* Slideshow interno: imágenes apiladas que se cruzan */
+.slideshow{position:absolute;inset:0}
+.slideshow .slide-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1s ease;
+}
+.slideshow .slide-img.active{opacity:1}
+.card:hover .slideshow .slide-img.active{transform:scale(1.08);transition:opacity 1s ease, transform .7s ease}
+.placeholder-media{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:#6a6a63;text-align:center;padding:20px;width:100%;height:100%;
+}
+.card.light .placeholder-media{color:#9b9786}
+.placeholder-media svg{width:42px;height:42px;opacity:.5}
+.placeholder-media small{font-size:.72rem;letter-spacing:1px;text-transform:uppercase}
+.card-body{padding:28px}
+.card-num{font-family:var(--display);font-size:.9rem;color:var(--lime);margin-bottom:10px}
+.card.light .card-num{color:var(--lime-deep)}
+.card h3{font-family:var(--display);font-size:1.5rem;line-height:1.05;margin-bottom:14px;letter-spacing:-.5px}
+.card .desc{font-size:.92rem;color:var(--gray);line-height:1.6;margin-bottom:18px}
+.card.light .desc{color:#555}
+.chips{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1);
+}
+.chips-inner{overflow:hidden;display:flex;flex-direction:column;gap:9px}
+.card.open .chips{grid-template-rows:1fr;margin-top:4px}
+.chip{
+  font-size:.82rem;color:var(--gray);line-height:1.4;
+  padding-left:18px;position:relative;
+}
+.chip::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--lime)}
+.card.light .chip{color:#555}
+.btn-more{
+  margin-top:18px;display:inline-flex;align-items:center;gap:8px;
+  background:none;border:none;cursor:pointer;
+  color:var(--lime);font-family:var(--body);font-weight:700;font-size:.9rem;
+  letter-spacing:.5px;padding:0;transition:.2s;
+}
+.card.light .btn-more{color:var(--lime-deep)}
+.btn-more .ico{
+  width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;line-height:1;
+  transition:.3s;
+}
+.card.open .btn-more .ico{transform:rotate(45deg)}
+.btn-more:hover .ico{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+
+/* ---------- Carrusel ---------- */
+.carousel-wrap{margin-top:50px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.carousel{display:flex;gap:18px;width:max-content;animation:scrollx 36s linear infinite}
+.carousel:hover{animation-play-state:paused}
+.carousel .slide{
+  width:260px;height:180px;border-radius:18px;flex-shrink:0;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,#1c1c1c,#262626);border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+}
+.carousel .slide img{width:100%;height:100%;object-fit:cover}
+.carousel .slide .ph{color:#6a6a63;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;text-align:center;padding:14px}
+@keyframes scrollx{to{transform:translateX(calc(-50% - 9px))}}
+
+/* ---------- Proceso ---------- */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
+.step{position:relative;padding:30px;border-radius:20px;background:var(--ink-soft);border:1px solid rgba(255,255,255,.07);transition:.3s}
+.step:hover{border-color:var(--lime);transform:translateY(-6px)}
+.step .n{font-family:var(--display);font-size:2.6rem;color:rgba(200,245,0,.25);line-height:1}
+.step h4{font-size:1.15rem;margin:10px 0 8px;font-weight:700}
+.step p{color:var(--gray);font-size:.88rem;line-height:1.55}
+@media(max-width:860px){.process{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.process{grid-template-columns:1fr}}
+
+/* ---------- Clientes ---------- */
+.clients{padding:90px 6vw;text-align:center;border-top:1px solid rgba(255,255,255,.07)}
+.clients p.lead{color:var(--gray);text-transform:uppercase;letter-spacing:3px;font-size:.78rem;margin-bottom:40px}
+.client-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:22px}
+.client-logo{
+  width:130px;height:130px;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);transition:.3s;
+  display:flex;align-items:center;justify-content:center;background:#fff;
+}
+.client-logo img{width:100%;height:100%;object-fit:cover;display:block}
+.client-logo:hover{transform:translateY(-6px);border-color:var(--lime);box-shadow:0 16px 40px rgba(200,245,0,.15)}
+@media(max-width:520px){.client-logo{width:100px;height:100px}}
+
+/* ---------- CTA ---------- */
+.cta{
+  margin:90px 6vw;border-radius:32px;padding:80px 8%;text-align:center;
+  background:var(--lime);color:var(--ink);position:relative;overflow:hidden;
+}
+.cta::before{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 50%,transparent 0 30px,rgba(0,0,0,.04) 31px 32px)}
+.cta h2{font-family:var(--display);font-size:clamp(2rem,6vw,4rem);line-height:.95;position:relative}
+.cta p{max-width:520px;margin:20px auto 36px;font-weight:500;font-size:1.05rem;position:relative}
+.cta .btn-dark{background:var(--ink);color:var(--lime)}
+.cta .btn-dark:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.3)}
+
+/* ---------- Footer ---------- */
+footer{padding:70px 6vw 40px;border-top:1px solid rgba(255,255,255,.08)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:50px}
+.foot-grid h4{color:var(--lime);font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}
+.foot-grid a,.foot-grid p{display:block;color:var(--gray);text-decoration:none;font-size:.92rem;margin-bottom:10px;transition:.2s}
+.foot-grid a:hover{color:var(--lime)}
+.foot-ph{color:#5a5a55!important;font-style:italic;font-size:.82rem!important}
+.foot-logo{font-family:var(--display);font-size:2rem;margin-bottom:14px}
+.foot-bottom{text-align:center;color:#5a5a55;font-size:.8rem;padding-top:30px;border-top:1px solid rgba(255,255,255,.06)}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:30px}}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa{
+  position:fixed;bottom:26px;right:26px;z-index:90;
+  width:60px;height:60px;border-radius:50%;background:var(--lime);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(200,245,0,.4);text-decoration:none;
+  animation:pulseWa 2.5s infinite;
+}
+@keyframes pulseWa{0%,100%{box-shadow:0 10px 30px rgba(200,245,0,.4)}50%{box-shadow:0 10px 45px rgba(200,245,0,.7)}}
+.wa svg{width:30px;height:30px}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.16,1,.3,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* Las fotos de slideshow y carrusel son clickeables */
+.slide-img,.carousel .slide img{cursor:pointer;object-position:center}
+
+/* ---------- Lightbox ---------- */
+.lightbox{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,.92);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{
+  max-width:92vw;max-height:88vh;border-radius:10px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  transform:scale(.95);transition:transform .3s;
+}
+.lightbox.open img{transform:scale(1)}
+.lightbox .lb-close{
+  position:absolute;top:24px;right:30px;width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+  color:#fff;font-size:1.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:.2s;
+}
+.lightbox .lb-close:hover{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.lightbox .lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);
+  color:#fff;font-size:1.8rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:.2s;user-select:none;
+}
+.lightbox .lb-nav:hover{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.lightbox .lb-prev{left:24px} .lightbox .lb-next{right:24px}
+@media(max-width:600px){.lightbox .lb-nav{width:42px;height:42px;font-size:1.4rem}.lightbox .lb-prev{left:10px}.lightbox .lb-next{right:10px}}
+
+/* ---------- Lightbox: contador + nombre ---------- */
+.lb-counter{
+  position:absolute;top:26px;left:50%;transform:translateX(-50%);
+  color:#fff;font-weight:700;font-size:.95rem;letter-spacing:1px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
+  padding:6px 16px;border-radius:30px;
+}
+.lb-counter b{color:var(--lime)}
+.lb-caption{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  color:#eaeae4;font-size:.95rem;font-weight:600;letter-spacing:.3px;
+  text-align:center;max-width:80vw;
+  background:rgba(0,0,0,.45);padding:8px 18px;border-radius:30px;
+}
+@media(max-width:600px){.lb-counter{top:18px}.lb-caption{bottom:14px;font-size:.72rem}}
+
+/* ---------- Loader de entrada ---------- */
+.loader{
+  position:fixed;inset:0;z-index:2000;background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  transition:opacity .6s ease,visibility .6s;
+}
+.loader.hide{opacity:0;visibility:hidden}
+.loader-logo{
+  font-family:var(--display);font-size:clamp(2.6rem,9vw,5rem);letter-spacing:-2px;color:var(--white);
+  opacity:0;transform:translateY(16px);animation:fadeUp .7s .1s forwards;
+}
+.loader-logo .dot{color:var(--lime)}
+.loader-bar{width:min(240px,58vw);height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.loader-bar span{display:block;height:100%;width:0;background:var(--lime);border-radius:3px;animation:load 1.5s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes load{to{width:100%}}
+
+/* ---------- Cursor personalizado ---------- */
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:3000;
+  translate:-50% -50%;
+}
+.cursor-dot{width:8px;height:8px;background:var(--lime)}
+.cursor-ring{
+  width:34px;height:34px;border:1.5px solid var(--lime);
+  transition:width .2s ease,height .2s ease,background .2s ease;
+}
+.cursor-ring.grow{width:56px;height:56px;background:rgba(200,245,0,.1)}
+@media(hover:none),(max-width:860px){.cursor-dot,.cursor-ring{display:none}}
+
+/* ---------- Buscador del catálogo ---------- */
+.cat-search{margin-top:36px;position:relative;max-width:460px}
+.cat-search input{
+  width:100%;padding:15px 50px 15px 22px;border-radius:50px;
+  border:1.5px solid rgba(255,255,255,.15);background:var(--ink-soft);color:var(--white);
+  font-family:var(--body);font-size:.95rem;outline:none;transition:.25s;
+}
+.cat-search input:focus{border-color:var(--lime);box-shadow:0 0 0 4px rgba(200,245,0,.12)}
+.cat-search input::placeholder{color:#6a6a63}
+.cat-search .s-ico{
+  position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  width:20px;height:20px;color:var(--lime);pointer-events:none;
+}
+.card.hide-card{display:none}
+.no-results{display:none;margin-top:40px;color:var(--gray);font-size:1.05rem}
+.no-results.show{display:block}
+.no-results b{color:var(--lime)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:820px;margin-top:50px}
+.faq-item{
+  border:1px solid rgba(255,255,255,.1);border-radius:16px;margin-bottom:14px;
+  overflow:hidden;background:var(--ink-soft);transition:border-color .3s;
+}
+.faq-item:hover{border-color:rgba(200,245,0,.4)}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;color:var(--white);
+  font-family:var(--body);font-weight:600;font-size:1.05rem;
+  padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-q .fico{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--lime);
+  color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1.2rem;line-height:1;transition:.3s;
+}
+.faq-item.open .faq-q .fico{transform:rotate(45deg);background:var(--lime);color:var(--ink)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a-inner{overflow:hidden;color:var(--gray);line-height:1.65;font-size:.95rem;padding:0 24px}
+.faq-item.open .faq-a-inner{padding:0 24px 22px}
+
+/* ---------- Barra de progreso de lectura ---------- */
+.progress-bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--lime);z-index:200;box-shadow:0 0 10px rgba(200,245,0,.6);transition:width .08s linear}
+
+/* ---------- Palabra rotante del hero ---------- */
+.rotador{color:var(--lime);font-weight:700;display:inline-block;min-width:5ch;transition:opacity .3s ease,transform .3s ease}
+.rotador.swap{opacity:0;transform:translateY(-8px)}
+
+/* ---------- Tarjetas con efecto 3D (tilt) ---------- */
+.cat-grid{perspective:1100px}
+.card{transform-style:preserve-3d;will-change:transform}
+
+/* ---------- Números que se pintan ---------- */
+.step .n{transition:color .35s ease,transform .35s ease}
+.step:hover .n{color:var(--lime);transform:scale(1.08)}
+.card-num{transition:color .3s ease,letter-spacing .3s ease}
+.card:hover .card-num{letter-spacing:3px}
+
+/* ---------- Pop-up de promoción ---------- */
+.promo{
+  position:fixed;inset:0;z-index:1500;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+  opacity:0;pointer-events:none;transition:opacity .35s;
+}
+.promo.open{opacity:1;pointer-events:auto}
+.promo-card{
+  position:relative;max-width:420px;width:100%;text-align:center;
+  background:var(--ink-soft);border:1px solid rgba(200,245,0,.35);border-radius:26px;
+  padding:46px 34px 38px;overflow:hidden;
+  transform:scale(.9) translateY(20px);transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.promo.open .promo-card{transform:scale(1) translateY(0)}
+.promo-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% -20%,rgba(200,245,0,.18),transparent 60%)}
+.promo-badge{
+  position:relative;display:inline-block;font-family:var(--display);font-size:2.6rem;color:var(--ink);
+  background:var(--lime);padding:6px 22px;border-radius:40px;margin-bottom:18px;transform:rotate(-4deg);
+}
+.promo-card h3{font-family:var(--display);font-size:1.6rem;margin-bottom:12px;position:relative}
+.promo-card p{color:var(--gray);line-height:1.6;font-size:.95rem;margin-bottom:18px;position:relative}
+.promo-card p b{color:var(--lime)}
+.promo-code{
+  position:relative;display:inline-block;font-family:var(--display);letter-spacing:4px;color:var(--lime);
+  border:1.5px dashed var(--lime);border-radius:12px;padding:10px 22px;margin-bottom:22px;font-size:1.1rem;
+}
+.promo-card .btn{position:relative;width:100%;justify-content:center}
+.promo-x{
+  position:absolute;top:14px;right:16px;width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;
+  font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;z-index:2;
+}
+.promo-x:hover{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+
+/* ---------- Redes sociales (footer) ---------- */
+.socials{display:flex;gap:14px;margin-bottom:16px}
+.social{
+  width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.18);color:var(--gray);transition:.25s;
+}
+.social svg{width:22px;height:22px}
+.social:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);transform:translateY(-4px)}
+
+</style>
+</head>
+<body>
+
+<!-- LOADER de entrada -->
+<div class="loader" id="loader">
+  <div class="loader-logo"><b>MAGNO</b><span class="dot">.</span></div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- Barra de progreso de lectura -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Cursor personalizado -->
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<div class="bg-topo"></div>
+<div class="bg-lines"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo"><b>MAGNO</b><span class="dot">.</span></div>
+  <div class="navlinks" id="navlinks">
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="hero-tag"><span class="pulse"></span>Agencia creativa · Impresión & branding</div>
+  <img src="img/magno-logo.jpg" alt="MAGNO Publicidad" class="hero-logo">
+  <p class="hero-sub">Branding, impresión e ideas frescas que hacen que tu marca se sienta <strong class="rotador" id="rotador">VIVA</strong>.</p>
+  <div class="hero-cta">
+    <a href="#servicios" class="btn btn-primary">Ver catálogo →</a>
+    <a href="#contacto" class="btn btn-ghost js-wa" target="_blank" rel="noopener" data-wa="Hola MAGNO 👋 Vengo de la página web y quiero cotizar un proyecto.">Cotiza tu proyecto</a>
+  </div>
+  <div class="scroll-hint">Desliza</div>
+</header>
+
+<!-- STATS (placeholders editables) -->
+<section class="stats" style="grid-template-columns:repeat(3,1fr)">
+  <div class="stat reveal"><h3 data-count="1000" data-prefix="+">+1000</h3><p>Proyectos entregados</p></div>
+  <div class="stat reveal"><h3 style="font-size:clamp(1.4rem,3.4vw,2.4rem)">CC Arkadia<br>CC Fontanar</h3><p>Marcas aliadas</p></div>
+  <div class="stat reveal"><h3 data-count="11">11</h3><p>Líneas de servicio</p></div>
+</section>
+
+<!-- SERVICIOS / CATÁLOGO -->
+<section class="section" id="servicios">
+  <div class="eyebrow reveal">Nuestro catálogo</div>
+  <h2 class="reveal">Todo lo que tu<br>marca necesita.</h2>
+  <p class="intro reveal">Once líneas de servicio para llevar tu marca del archivo a la calle. Desliza, explora y elige.</p>
+
+  <div class="cat-search reveal">
+    <input type="text" id="catSearch" placeholder="Busca un servicio… ej: termos, pendones, stickers" aria-label="Buscar servicio">
+    <svg class="s-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+  </div>
+
+  <div class="cat-grid">
+
+    <!-- 01 -->
+    <article class="card dark reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/granformato-floor-tren.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/granformato-floor-escaleras.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/granformato-floor-tenis.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/granformato-escalera-farmatodo.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/granformato-pendones.jpg" alt="" loading="lazy">
+        </div>
+        <!-- SLIDESHOW: aquí van tus fotos. La primera lleva class "slide-img active", las demás solo "slide-img" -->
+        <div class="slideshow">
+          <!-- Ejemplo (reemplazar src por tus fotos):
+          <img class="slide-img active" src="granformato-1.jpg" alt="Gran formato 1">
+          <img class="slide-img" src="granformato-2.jpg" alt="Gran formato 2">
+          <img class="slide-img" src="granformato-3.jpg" alt="Gran formato 3">
+          -->
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">01</div>
+        <h3>Impresión Gran Formato</h3>
+        <p class="desc">Ideales para exteriores e interiores, con excelente calidad y durabilidad.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Adhesivos gran formato</span>
+          <span class="chip">Backing para eventos</span>
+          <span class="chip">Banderines publicitarios</span>
+          <span class="chip">Microperforados</span>
+          <span class="chip">Pendones con/sin estructura</span>
+          <span class="chip">Floor graphic</span>
+        </div></div></div>
+    </article>
+
+    <!-- 02 -->
+    <article class="card light reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/digital-stickers-ritual.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-mural-playa.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-mural-aviones.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-papeltapiz-floral.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-mural-pethaus.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-pared-chocotwist.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-mesas-farmatodo.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/digital-mural-invierno.jpg" alt="Mural decorativo · Invierno" loading="lazy">
+        <img class="slide-img" src="img/digital-mural-zonalaser.jpg" alt="Mural impreso · Zona Láser" loading="lazy">
+        <img class="slide-img" src="img/digital-ascensor-zonalaser.jpg" alt="Vinilo en ascensor · Zona Láser" loading="lazy">
+        <img class="slide-img" src="img/digital-pared-60marcas.jpg" alt="Pared decorada · 60 Marcas" loading="lazy">
+        <img class="slide-img" src="img/digital-pared-frases.jpg" alt="Pared con frases decorativas" loading="lazy">
+        <img class="slide-img" src="img/digital-registraduria-redonda.jpg" alt="Pieza circular impresa · Registraduría" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">02</div>
+        <h3>Impresión Litográfica y Digital</h3>
+        <p class="desc">Alta resolución y colores vivos, o grandes volúmenes con la mejor calidad y acabados profesionales.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Stickers y etiquetas</span>
+          <span class="chip">Vinilos decorativos</span>
+          <span class="chip">Rótulos personalizados</span>
+          <span class="chip">Stickers tornasol</span>
+          <span class="chip">Tarjetas de presentación</span>
+          <span class="chip">Volantes</span>
+          <span class="chip">Calendarios</span>
+          <span class="chip">Afiches publicitarios</span>
+          <span class="chip">Talonarios empresariales</span>
+          <span class="chip">Etiquetas de ropa</span>
+          <span class="chip">Carnet institucional</span>
+          <span class="chip">Abanicos</span>
+          <span class="chip">Diseños personalizados</span>
+          <span class="chip">Lonas</span>
+        </div></div></div>
+    </article>
+
+    <!-- 03 (Personalización de Marca, antes 04) -->
+    <article class="card dark reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/pop-kit-magno.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/pop-manillas-silicona.jpg" alt="" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">03</div>
+        <h3>Personalización de Marca</h3>
+        <p class="desc">Hacemos que tu marca se vea donde más importa.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Termos en acero</span>
+          <span class="chip">Lapiceros</span>
+          <span class="chip">Manillas de goma</span>
+          <span class="chip">Manillas para eventos</span>
+          <span class="chip">Llaveros</span>
+          <span class="chip">Bolsas cambric personalizadas</span>
+          <span class="chip">Empaques personalizados</span>
+        </div></div></div>
+    </article>
+
+    <!-- 05 -->
+    <article class="card light reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/avisos-laika.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-bunuel.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-tolua.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-patataso.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-totem-farmatodo.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-trendy-espejos.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-bano-siluetas.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-uribienes.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/avisos-zonalaser-letrero.jpg" alt="Letrero luminoso · Zona Láser" loading="lazy">
+        <img class="slide-img" src="img/avisos-totem-60marcas.jpg" alt="Tótem publicitario · 60 Marcas" loading="lazy">
+        <img class="slide-img" src="img/avisos-arkadia-flecha.jpg" alt="Señalización direccional · Arkadia" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">04</div>
+        <h3>Avisos & Señalización</h3>
+        <p class="desc">Ideales para exteriores e interiores, con excelente calidad y durabilidad.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Avisos luminosos en acrílico</span>
+          <span class="chip">Letreros en poliestireno</span>
+          <span class="chip">Tótems</span>
+          <span class="chip">Cajón luminoso</span>
+          <span class="chip">Señalética institucional y decorativa</span>
+        </div></div></div>
+    </article>
+
+    <!-- 06 -->
+    <article class="card dark reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/stands-zonalaser-estructura.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-ikis.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-payjoy.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-alocredit.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-showroom-acabados.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-arkadia-carrito.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-juliao-carrito.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-jugueteria-santa.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-byd.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-trencito-1.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/stands-trencito-2.jpg" alt="Trencito temático · Stand" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">05</div>
+        <h3>Stands & Escenografía</h3>
+        <p class="desc">Diseño e instalación adaptado a tu espacio.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Stands para ferias</span>
+          <span class="chip">Decoración y estilismo</span>
+          <span class="chip">Diseño de interiores residenciales</span>
+          <span class="chip">Diseño de oficinas y locales</span>
+          <span class="chip">Renderización</span>
+        </div></div></div>
+    </article>
+
+    <!-- 07 -->
+    <article class="card light reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/vehicular-comfrut-lateral.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/vehicular-comfrut-atras.jpg" alt="" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">06</div>
+        <h3>Branding Vehicular</h3>
+        <p class="desc">Transforma tu vehículo en una herramienta de marketing.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Rotulación de vehículos</span>
+          <span class="chip">Publicidad móvil a todo color</span>
+          <span class="chip">Diseño gráfico personalizado</span>
+          <span class="chip">Vinilo de alta resistencia</span>
+          <span class="chip">Servicio de instalación</span>
+        </div></div></div>
+    </article>
+
+    <!-- 07 Creación de Marca y/o Eventos -->
+    <article class="card dark reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/pop-kit-magno.jpg" alt="" loading="lazy">
+        <img class="slide-img" src="img/carrusel-arkadia-columna.jpg" alt="" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">07</div>
+        <h3>Creación de Marca y/o Eventos</h3>
+        <p class="desc">Más que imprimir: pensamos tu marca desde cero y la llevamos a la vida en cada evento.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Brochure</span>
+          <span class="chip">Identidad de marca</span>
+          <span class="chip">Diseño de logos</span>
+          <span class="chip">Paleta de colores</span>
+          <span class="chip">Página web</span>
+          <span class="chip">Catálogo virtual</span>
+          <span class="chip">Montaje y activación de eventos</span>
+          <span class="chip">Campañas visuales integrales</span>
+        </div></div></div>
+    </article>
+
+    <!-- 08 Renders de Marca -->
+    <article class="card light reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/RENDER1.jpg" alt="Render de marca · Fachada del local" loading="lazy">
+        <img class="slide-img" src="img/RENDER2.jpg" alt="Render de marca · Interior y ambiente" loading="lazy">
+        <img class="slide-img" src="img/RENDER3.jpg" alt="Render de marca · Zona de atención" loading="lazy">
+        <img class="slide-img" src="img/RENDER4.jpg" alt="Render de marca · Mobiliario y decoración" loading="lazy">
+        <img class="slide-img" src="img/RENDER5.png" alt="Render de marca · Planos y especificaciones técnicas" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">08</div>
+        <h3>Renders de Marca</h3>
+        <p class="desc">Visualiza tu marca antes de construirla: renders 3D realistas de tu local, stand o espacio, con planos al detalle.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Renders 3D fotorrealistas</span>
+          <span class="chip">Diseño de local y punto de venta</span>
+          <span class="chip">Planos técnicos y medidas</span>
+          <span class="chip">Distribución de espacios</span>
+          <span class="chip">Vista previa antes de fabricar</span>
+        </div></div></div>
+    </article>
+
+    <!-- 09 Presencia Digital · Software de Gestión (Solessa) -->
+    <article class="card dark reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/solessa-1-calendario.jpg" alt="Solessa · Calendario de reservas" loading="lazy">
+        <img class="slide-img" src="img/solessa-2-reservas.jpg" alt="Solessa · Reservas y agenda de citas" loading="lazy">
+        <img class="slide-img" src="img/solessa-3-ficha.jpg" alt="Solessa · Catálogo y ficha de servicio" loading="lazy">
+        <img class="slide-img" src="img/solessa-4-pago.jpg" alt="Solessa · Sección de pagos" loading="lazy">
+        <img class="slide-img" src="img/solessa-5-contabilidad.jpg" alt="Solessa · Contabilidad fácil — el control total de tu negocio" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">09</div>
+        <h3>Software de Gestión</h3>
+        <p class="desc">Tu negocio bajo control: reservas, catálogo, pagos y contabilidad fácil en un solo lugar.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Software de reservas y citas</span>
+          <span class="chip">Catálogo integrado</span>
+          <span class="chip">Sección de pagos</span>
+          <span class="chip">Contabilidad fácil</span>
+          <span class="chip">Gestión de clientes</span>
+        </div></div></div>
+    </article>
+
+    <!-- 10 Presencia Digital · Catálogo Virtual con Reservas (uñas) -->
+    <article class="card light reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/nails-1-portada.jpg" alt="Catálogo virtual de uñas · Portada" loading="lazy">
+        <img class="slide-img" src="img/nails-2-disenos.jpg" alt="Catálogo virtual de uñas · Diseños" loading="lazy">
+        <img class="slide-img" src="img/nails-3-servicios.jpg" alt="Catálogo virtual de uñas · Elige tu experiencia" loading="lazy">
+        <img class="slide-img" src="img/nails-4-inspiracion.jpg" alt="Catálogo virtual de uñas · Inspiración para tu diseño" loading="lazy">
+        <img class="slide-img" src="img/nails-5-preguntas.jpg" alt="Catálogo virtual de uñas · Reserva por WhatsApp" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">10</div>
+        <h3>Catálogo Virtual con Reservas</h3>
+        <p class="desc">Tus clientes ven todo tu catálogo, se inspiran y reservan al instante por WhatsApp.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Catálogo de diseños</span>
+          <span class="chip">Galería de inspiración</span>
+          <span class="chip">Reserva por WhatsApp</span>
+          <span class="chip">Sección de preguntas frecuentes</span>
+          <span class="chip">Diseño a tu medida</span>
+        </div></div></div>
+    </article>
+
+    <!-- 11 Presencia Digital · Catálogo Dinámico con Carrito (velas) -->
+    <article class="card dark reveal">
+      <div class="card-media">
+        <div class="slideshow">
+        <img class="slide-img active" src="img/velas-1-portada.jpg" alt="Catálogo dinámico de velas · Portada" loading="lazy">
+        <img class="slide-img" src="img/velas-2-productos.jpg" alt="Catálogo dinámico de velas · Productos" loading="lazy">
+        <img class="slide-img" src="img/velas-3-ramos.jpg" alt="Catálogo dinámico de velas · Ramos" loading="lazy">
+        <img class="slide-img" src="img/velas-4-cuidado.jpg" alt="Catálogo dinámico de velas · Cuidado del producto" loading="lazy">
+        <img class="slide-img" src="img/velas-5-pedido.jpg" alt="Catálogo dinámico de velas · Pedido por WhatsApp" loading="lazy">
+        </div>
+        </div>
+      <div class="card-body">
+        <div class="card-num">11</div>
+        <h3>Catálogo Dinámico con Carrito</h3>
+        <p class="desc">Catálogo interactivo: tus clientes arman su pedido en el carrito y lo cierran por WhatsApp.</p>
+        <button class="btn-more" onclick="toggleCard(this)"><span class="ico">+</span><span class="lbl">Ver más</span></button><div class="chips"><div class="chips-inner">
+          <span class="chip">Carrito de compras</span>
+          <span class="chip">Fichas de producto</span>
+          <span class="chip">Opciones personalizables</span>
+          <span class="chip">Pedido por WhatsApp</span>
+          <span class="chip">Diseño a medida</span>
+        </div></div></div>
+    </article>
+
+  </div>
+  <p class="no-results" id="noResults">No encontramos servicios para <b id="noResultsTerm"></b>. ¡Pero seguro lo hacemos! Escríbenos y te ayudamos. 😉</p>
+</section>
+
+<!-- GALERÍA CARRUSEL -->
+<section class="section" style="padding-top:0">
+  <div class="eyebrow reveal">Galería</div>
+  <h2 class="reveal" style="font-size:clamp(1.8rem,5vw,3.2rem)">Trabajos que hablan solos.</h2>
+  <div class="carousel-wrap reveal">
+    <div class="carousel">
+      <div class="slide"><img src="img/carrusel-mural-follaje.jpg" alt="Mural follaje" loading="lazy"></div>
+      <div class="slide"><img src="img/carrusel-arkadia-columna.jpg" alt="Arkadia" loading="lazy"></div>
+      <div class="slide"><img src="img/avisos-laika.jpg" alt="Aviso Laika" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-mural-playa.jpg" alt="Mural playa" loading="lazy"></div>
+      <div class="slide"><img src="img/stands-zonalaser-estructura.jpg" alt="Zona Láser" loading="lazy"></div>
+      <div class="slide"><img src="img/vehicular-comfrut-lateral.jpg" alt="Comfrut" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-stickers-ritual.jpg" alt="Stickers" loading="lazy"></div>
+      <div class="slide"><img src="img/carrusel-registraduria.jpg" alt="Registraduría" loading="lazy"></div>
+      <div class="slide"><img src="img/avisos-zonalaser-letrero.jpg" alt="Letrero luminoso Zona Láser" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-mural-invierno.jpg" alt="Mural invierno" loading="lazy"></div>
+      <div class="slide"><img src="img/stands-trencito-2.jpg" alt="Trencito temático" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-pared-frases.jpg" alt="Pared con frases" loading="lazy"></div>
+      <!-- duplicado para loop infinito -->
+      <div class="slide"><img src="img/carrusel-mural-follaje.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/carrusel-arkadia-columna.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/avisos-laika.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-mural-playa.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/stands-zonalaser-estructura.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/vehicular-comfrut-lateral.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-stickers-ritual.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/carrusel-registraduria.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/avisos-zonalaser-letrero.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-mural-invierno.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/stands-trencito-2.jpg" alt="" loading="lazy"></div>
+      <div class="slide"><img src="img/digital-pared-frases.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO (sección nueva) -->
+<section class="section" id="proceso" style="padding-top:0">
+  <div class="eyebrow reveal">Cómo trabajamos</div>
+  <h2 class="reveal">Del brief a la calle<br>en 4 pasos.</h2>
+  <div class="process">
+    <div class="step reveal"><div class="n">01</div><h4>Escuchamos</h4><p>Nos cuentas tu idea, tu marca y tu objetivo. Sin enredos.</p></div>
+    <div class="step reveal"><div class="n">02</div><h4>Diseñamos</h4><p>Proponemos conceptos con flow hasta dar en el clavo.</p></div>
+    <div class="step reveal"><div class="n">03</div><h4>Producimos</h4><p>Imprimimos y fabricamos con los mejores materiales y acabados.</p></div>
+    <div class="step reveal"><div class="n">04</div><h4>Instalamos</h4><p>Entregamos e instalamos. Tu marca lista para brillar.</p></div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="clients" id="clientes">
+  <p class="lead reveal">Marcas que confían en nosotros</p>
+  <div class="client-row reveal">
+    <div class="client-logo"><img src="img/logo-arkadia.jpg" alt="Arkadia"></div>
+    <div class="client-logo"><img src="img/logo-fontanar.jpg" alt="Fontanar"></div>
+    <div class="client-logo"><img src="img/logo-laika.jpg" alt="Laika"></div>
+    <div class="client-logo"><img src="img/logo-juliao.jpg" alt="Juliao"></div>
+    <div class="client-logo"><img src="img/logo-uribienes.jpg" alt="Uribienes"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="padding-top:0">
+  <div class="eyebrow reveal">Preguntas frecuentes</div>
+  <h2 class="reveal">Resolvemos tus<br>dudas.</h2>
+  <div class="faq">
+    <div class="faq-item reveal">
+      <button class="faq-q">¿Hacen envíos a otras ciudades?<span class="fico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí. Despachamos a todo el país por transportadora. El costo y el tiempo dependen del destino y del tamaño del pedido; te lo confirmamos al cotizar.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">¿Cuánto tardan en entregar?<span class="fico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Depende del trabajo: piezas de impresión sencillas salen en 24–72 horas, mientras que stands, avisos y proyectos a medida toman algunos días más. Siempre te damos una fecha clara antes de arrancar.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">¿El diseño está incluido?<span class="fico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">¡Claro! Contamos con equipo de diseño. Si ya tienes tu arte listo lo imprimimos, y si no, lo creamos contigo desde cero hasta que quede perfecto.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">¿Manejan pedidos al por mayor?<span class="fico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí, trabajamos grandes volúmenes con precios especiales. Cuéntanos las cantidades que necesitas y te armamos una cotización a tu medida.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q">¿Cómo solicito una cotización?<span class="fico">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Muy fácil: escríbenos por WhatsApp con el botón verde de la esquina o desde cualquier botón de "Cotizar". Cuéntanos qué necesitas y te respondemos con gusto.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+  <h2>¿No lo viste aquí?</h2>
+  <p>¡Tranquilo! Tenemos más trucos bajo la manga. Pregunta sin miedo, seguro lo hacemos.</p>
+  <a href="#contacto" class="btn btn-dark js-wa" target="_blank" rel="noopener" data-wa="Hola MAGNO 👋 Vi su web y quiero que hablemos sobre un proyecto.">Hablemos →</a>
+</section>
+
+<!-- FOOTER / CONTACTO -->
+<footer id="contacto">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo"><b>MAGNO</b><span style="color:var(--lime)">.</span></div>
+      <p style="color:var(--gray)">No somos una agencia más… somos LA AGENCIA. Branding, impresión e ideas frescas con cero aburrimiento.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <a href="#" class="foot-ph">[ Teléfono — reemplazar ]</a>
+      <a href="#" class="foot-ph">[ WhatsApp — reemplazar ]</a>
+      <a href="#" class="foot-ph">[ Correo — reemplazar ]</a>
+      <a href="#" class="foot-ph">[ Dirección — reemplazar ]</a>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <div class="socials">
+        <!-- 👉 Reemplaza la URL por el Instagram real de MAGNO -->
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="social" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="social js-wa" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" data-wa="Hola MAGNO 👋 Vengo de la página web y quiero más información.">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm5.7 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
+        </a>
+      </div>
+      <a href="https://instagram.com/" target="_blank" rel="noopener" style="color:var(--gray);text-decoration:none;font-size:.9rem">@magnopublicidad <span style="color:#5a5a55;font-style:italic">— reemplazar</span></a>
+    </div>
+  </div>
+  <div class="foot-bottom">© <span id="year"></span> MAGNO Publicidad · Todos los derechos reservados</div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="#contacto" class="wa js-wa" target="_blank" rel="noopener" title="Escríbenos por WhatsApp" data-wa="Hola MAGNO 👋 Vengo de la página web y me interesa conocer más sobre sus servicios.">
+  <svg viewBox="0 0 24 24" fill="#0a0a0a"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm5.7 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>
+</a>
+
+<!-- POP-UP PROMO -->
+<div class="promo" id="promo">
+  <div class="promo-card">
+    <button class="promo-x" id="promoX" aria-label="Cerrar">&times;</button>
+    <div class="promo-badge">-10%</div>
+    <h3>¡Bienvenido a MAGNO!</h3>
+    <p>Llévate un <b>10% de descuento</b> en tu primer pedido. Solo menciona este cupón al escribirnos:</p>
+    <div class="promo-code">MAGNO10</div>
+    <a class="btn btn-primary js-wa" target="_blank" rel="noopener" data-wa="Hola MAGNO 👋 Vengo de la web y quiero usar el cupón MAGNO10 (10% en mi primer pedido).">Reclamar por WhatsApp →</a>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">&#8250;</button>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script>
+// Navbar scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+// Burger
+const burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Year
+document.getElementById('year').textContent=new Date().getFullYear();
+// Ver más / ver menos en tarjetas
+function toggleCard(btn){
+  const card=btn.closest('.card');
+  const open=card.classList.toggle('open');
+  btn.querySelector('.lbl').textContent=open?'Ver menos':'Ver más';
+}
+// Slideshow interno de cada tarjeta: cambia foto cada 2s
+document.querySelectorAll('.slideshow').forEach(show=>{
+  const imgs=show.querySelectorAll('.slide-img');
+  if(imgs.length<2)return;
+  let i=0;
+  setInterval(()=>{
+    if(document.getElementById('lightbox').classList.contains('open'))return;
+    imgs[i].classList.remove('active');
+    i=(i+1)%imgs.length;
+    imgs[i].classList.add('active');
+  },2000);
+});
+
+// ---------- Lightbox por categoría + contador ----------
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lbImg');
+const lbCounter=document.getElementById('lbCounter');
+const lbCaption=document.getElementById('lbCaption');
+let gallery=[], gIndex=0;
+
+// Arma la galería SOLO con las fotos que acompañan a la imagen clickeada
+function galleryFrom(img){
+  const show=img.closest('.slideshow');           // dentro de una tarjeta → solo esa categoría
+  if(show) return [...show.querySelectorAll('.slide-img')];
+  const car=img.closest('.carousel');             // dentro del carrusel → primera mitad (sin duplicados)
+  if(car){const all=[...car.querySelectorAll('.slide img')];return all.slice(0,Math.ceil(all.length/2));}
+  return [img];
+}
+// Nombre a mostrar: alt de la foto, o si no, el título de la tarjeta
+function captionFor(img){
+  if(img.alt) return img.alt;
+  const card=img.closest('.card');
+  const h=card&&card.querySelector('h3');
+  return h?h.textContent:'';
+}
+function renderLb(){
+  const im=gallery[gIndex];
+  lbImg.src=im.src;
+  lbImg.alt=captionFor(im);
+  lbCaption.textContent=captionFor(im);
+  lbCounter.innerHTML='<b>'+(gIndex+1)+'</b> / '+gallery.length;
+}
+function openLb(img){
+  gallery=galleryFrom(img);
+  gIndex=Math.max(0,gallery.indexOf(img));
+  renderLb();
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+function navLb(d){gIndex=(gIndex+d+gallery.length)%gallery.length;renderLb();}
+
+// Click en cualquier foto
+document.addEventListener('click',e=>{
+  const img=e.target.closest('.slide-img, .carousel .slide img');
+  if(img){openLb(img);}
+});
+document.getElementById('lbClose').addEventListener('click',closeLb);
+document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();navLb(-1);});
+document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();navLb(1);});
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')navLb(-1);
+  if(e.key==='ArrowRight')navLb(1);
+});
+
+// ---------- Loader de entrada ----------
+addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hide'),700);});
+
+// ---------- Cursor personalizado ----------
+(function(){
+  const dot=document.getElementById('cursorDot'), ring=document.getElementById('cursorRing');
+  if(!matchMedia('(hover:hover)').matches) return;        // solo en dispositivos con mouse
+  addEventListener('mousemove',e=>{
+    const t='translate('+e.clientX+'px,'+e.clientY+'px)';
+    dot.style.transform=t; ring.style.transform=t;
+  });
+  document.querySelectorAll('a,button,.card,.slide,.client-logo,.slide-img,input').forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring.classList.add('grow'));
+    el.addEventListener('mouseleave',()=>ring.classList.remove('grow'));
+  });
+})();
+
+// ---------- Contadores animados ----------
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  const el=e.target, target=+el.dataset.count, prefix=el.dataset.prefix||'', dur=1600;
+  let t0=null;
+  function tick(now){
+    if(t0===null)t0=now;
+    const p=Math.min((now-t0)/dur,1);
+    const val=Math.floor((1-Math.pow(1-p,3))*target);   // easing suave
+    el.textContent=prefix+val;
+    if(p<1)requestAnimationFrame(tick); else el.textContent=prefix+target;
+  }
+  requestAnimationFrame(tick);
+  cio.unobserve(el);
+}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(c=>cio.observe(c));
+
+// ---------- Buscador del catálogo ----------
+(function(){
+  const input=document.getElementById('catSearch');
+  if(!input) return;
+  const cards=[...document.querySelectorAll('.cat-grid .card')];
+  const noRes=document.getElementById('noResults');
+  const term=document.getElementById('noResultsTerm');
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    let visible=0;
+    cards.forEach(c=>{
+      const match=c.textContent.toLowerCase().includes(q);
+      c.classList.toggle('hide-card',!match);
+      if(match)visible++;
+    });
+    term.textContent='“'+input.value.trim()+'”';
+    noRes.classList.toggle('show',visible===0 && q!=='');
+  });
+})();
+
+// ---------- FAQ desplegable ----------
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.closest('.faq-item').classList.toggle('open'));
+});
+
+// ---------- WhatsApp inteligente ----------
+// 👉 Reemplaza el número por el real de MAGNO (formato internacional, sin + ni espacios)
+const WA_NUMBER='573000000000';
+function waLink(msg){return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg||'Hola MAGNO 👋');}
+document.querySelectorAll('.js-wa').forEach(b=>{
+  b.href=waLink(b.dataset.wa);
+});
+
+// ---------- Palabra rotante del hero ----------
+(function(){
+  const el=document.getElementById('rotador');
+  if(!el) return;
+  const words=['VIVA','FRESCA','ÚNICA','MAGNA'];
+  let i=0;
+  setInterval(()=>{
+    el.classList.add('swap');                 // se desvanece hacia arriba
+    setTimeout(()=>{
+      i=(i+1)%words.length;
+      el.textContent=words[i];
+      el.classList.remove('swap');            // entra la nueva palabra
+    },300);
+  },2200);
+})();
+
+// ---------- Tarjetas con efecto 3D (tilt) ----------
+if(matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.cat-grid .card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-.5;
+      const py=(e.clientY-r.top)/r.height-.5;
+      card.style.transform='translateY(-10px) rotateX('+(-py*7)+'deg) rotateY('+(px*7)+'deg)';
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+}
+
+// ---------- Barra de progreso de lectura ----------
+const progressBar=document.getElementById('progressBar');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const max=h.scrollHeight-h.clientHeight;
+  progressBar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+});
+
+// ---------- Pop-up de promoción ----------
+(function(){
+  const promo=document.getElementById('promo');
+  if(!promo) return;
+  const close=()=>{promo.classList.remove('open');document.body.style.overflow='';};
+  // se muestra una sola vez por sesión, tras 4 segundos
+  if(!sessionStorage.getItem('magnoPromo')){
+    setTimeout(()=>{promo.classList.add('open');sessionStorage.setItem('magnoPromo','1');},4000);
+  }
+  document.getElementById('promoX').addEventListener('click',close);
+  promo.addEventListener('click',e=>{if(e.target===promo)close();});
+  promo.querySelector('.js-wa').addEventListener('click',close);
+})();
+</script>
+</body>
+</html>
