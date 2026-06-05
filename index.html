@@ -481,6 +481,19 @@ footer{padding:70px 6vw 40px;border-top:1px solid rgba(255,255,255,.08)}
 .social svg{width:22px;height:22px}
 .social:hover{background:var(--lime);color:var(--ink);border-color:var(--lime);transform:translateY(-4px)}
 
+/* ---------- Catálogo compacto en celular (2 por fila) ---------- */
+@media(max-width:600px){
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:34px}
+  .card-media{height:120px}
+  .card-body{padding:14px 14px 16px}
+  .card-num{font-size:.72rem;margin-bottom:5px}
+  .card h3{font-size:.98rem;line-height:1.1;margin-bottom:8px}
+  .card .desc{display:none}
+  .btn-more{margin-top:6px;font-size:.82rem}
+  .btn-more .ico{width:19px;height:19px}
+  .chip{font-size:.74rem;padding-left:15px}
+  .chip::before{width:6px;height:6px}
+}
 </style>
 </head>
 <body>
